@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 async function getProduct(id: string): Promise<Product> {
-  const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+  const res = await fetch(`${process.env.API_BASE_URL}/api/products/${id}`, {
     cache: "force-cache",
     next: { revalidate: 300 },
   });

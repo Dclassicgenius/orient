@@ -2,7 +2,7 @@ import { Product } from "@/types";
 import ProductCard from "./ProductCard";
 
 const getProducts = async (query?: string): Promise<Product[]> => {
-  const res = await fetch("http://localhost:3000/api/products", {
+  const res = await fetch(`${process.env.API_BASE_URL}/api/products`, {
     cache: "force-cache",
     next: { revalidate: 3600 },
   });
